@@ -13,12 +13,19 @@ To use Firebase in production (on your live site), follow these steps:
 4. Click **Add new provider** and select **Google**.
 5. Enable it, configure your support email, and save.
 
-## 3. Create Firestore Database
+## 3. Authorize Your Domain (Crucial for GitHub Pages)
+Firebase blocks authentication requests from unauthorized domains by default.
+1. In the **Authentication** section, go to the **Settings** tab (next to Sign-in method).
+2. Click on **Authorized domains** in the left submenu.
+3. Click **Add domain**.
+4. Enter `himanshu31shr.github.io` and click **Add**.
+
+## 4. Create Firestore Database
 1. In the left menu, go to **Build** > **Firestore Database**.
 2. Click **Create database**.
 3. Choose a location and start in **Production mode** (or Test mode, we will overwrite the rules).
 
-## 4. Apply Security Rules
+## 5. Apply Security Rules
 Copy the following rules into the **Rules** tab of your Firestore Database in the Firebase Console:
 
 ```javascript
@@ -32,13 +39,13 @@ service cloud.firestore {
 }
 ```
 
-## 5. Get Web App Configuration
+## 6. Get Web App Configuration
 1. Go to **Project settings** (gear icon in the top left).
 2. Under **Your apps**, click the **Web** icon (`</>`) to register an app.
 3. Name it (e.g., "Tiffin Tracker").
 4. Copy the `firebaseConfig` object shown in the setup instructions.
 
-## 6. Update the App
+## 7. Update the App
 Replace the dummy configuration in `src/firebase.js` with your real credentials:
 
 ```javascript
@@ -52,7 +59,7 @@ const firebaseConfig = {
 };
 ```
 
-## 7. Deploy Again
+## 8. Deploy Again
 Once you update the file, commit the changes and run:
 ```bash
 npm run deploy
