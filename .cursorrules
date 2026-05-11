@@ -14,3 +14,6 @@
 - Use descriptive variable names.
 - Keep components focused and small.
 - Do not remove comments unless they are obsolete.
+
+## Git Workflow
+- Always use Pull Requests to merge code into `main`. Do not push directly to `main`.
