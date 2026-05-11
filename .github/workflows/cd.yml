@@ -28,12 +28,11 @@ jobs:
           cache: 'npm'
       - run: npm ci
 
-      - name: Bump version
+      - name: Bump version (local only)
+        id: get_version
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          npm version patch -m "ci: bump version to %s [skip ci]"
-          git push origin main --tags
+          npm version patch --no-git-tag-version
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
       - run: npm run build
       - name: Deploy Firestore Rules
@@ -46,9 +45,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Get version
-        id: get_version
-        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
 
       - name: Create Release
         env:
