@@ -17,3 +17,5 @@
 
 ## Git Workflow
 - Always use Pull Requests to merge code into `main`. Do not push directly to `main`.
+- Ensure tests pass locally before creating a PR.
+

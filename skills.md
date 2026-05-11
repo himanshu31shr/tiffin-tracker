@@ -7,10 +7,18 @@ Useful commands and operations for maintaining this project.
 - **Start Dev Server**: `npm run dev`
 - **Build Production**: `npm run build`
 
-## Firebase
+## Testing
 
-- **Deploy Hosting**: `firebase deploy --only hosting`
-- **Deploy Firestore Rules**: `firebase deploy --only firestore`
+- **Run unit tests**: `npm test`
+- **Run tests with coverage**: `npm run test:coverage`
+- **Run mutation tests**: `npm run test:mutation`
+
+## Firebase & Deployment
+
+- **Automated Deployment**: Pushing to `main` triggers GitHub Actions to deploy to GitHub Pages and deploy Firestore rules.
+- **Manual Deploy Hosting**: `firebase deploy --only hosting` (Note: CD is preferred)
+- **Manual Deploy Firestore Rules**: `firebase deploy --only firestore`
+
 
 ## Common Tasks
 
