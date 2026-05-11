@@ -24,3 +24,6 @@ Tiffin Tracker is a React application built with Vite and Firebase. It helps use
 - Maintain the "premium" dark glassmorphic design system defined in `index.css`.
 - Ensure state updates in UI match the calculations in `src/utils/tracker.js`.
 - Always check the time-based deduction logic when modifying meal calculations.
+- Run tests locally (`npm test`) before proposing changes or creating a PR.
+- Respect the automated CI/CD workflow; changes pushed to `main` will be deployed automatically.
+

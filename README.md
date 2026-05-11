@@ -16,6 +16,7 @@ A simple, premium web application to track your tiffin (meal) subscriptions, ded
 - **Frontend**: React, Vite, Vanilla CSS
 - **Backend**: Firebase (Firestore, Auth)
 - **Libraries**: `html2canvas` (for sharing calendar)
+- **Testing**: Vitest, Stryker (Mutation Testing)
 
 ## Getting Started
 
@@ -23,3 +24,15 @@ A simple, premium web application to track your tiffin (meal) subscriptions, ded
 2. Install dependencies: `npm install`
 3. Run the dev server: `npm run dev`
 4. Open `http://localhost:5173` in your browser.
+
+## Testing
+
+- **Run unit tests**: `npm test`
+- **Run tests with coverage**: `npm run test:coverage`
+- **Run mutation tests**: `npm run test:mutation`
+
+## CI/CD
+
+- **CI**: Automated tests and build run on pull requests to `main` via GitHub Actions.
+- **CD**: Automated deployment to GitHub Pages and Firestore rules deployment on push to `main` via GitHub Actions.
+

@@ -31,29 +31,28 @@ function App() {
     }
   }, [user]);
 
+  if (loading) {
+    return <div className="loader">Loading...</div>;
+  }
+
   return (
     <div className="app-container">
-      <header className="app-header">
-        <div className="logo">🍱 Tiffin Tracker</div>
-        <Auth user={user} />
-      </header>
-      
-      <main className="main-content">
-        {loading ? (
-          <div className="loader">Loading...</div>
-        ) : (
-          user ? (
+      {user ? (
+        <>
+          <header className="app-header">
+            <div className="logo">🍱 Tiffin Tracker</div>
+            <Auth user={user} />
+          </header>
+          <main className="main-content">
             <Dashboard userId={user.uid} userData={userData} />
-          ) : (
-            <div className="welcome-hero">
-              <h1>Never lose track of your meals.</h1>
-              <p>Simple, beautiful, and automatic tiffin tracking.</p>
-            </div>
-          )
-        )}
-      </main>
+          </main>
+        </>
+      ) : (
+        <Auth user={user} />
+      )}
     </div>
   );
+
 }
 
 export default App;

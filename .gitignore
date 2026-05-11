@@ -29,3 +29,12 @@ dist-ssr
 # Coverage and Reports
 coverage
 reports
+
+# Stryker
+.stryker-tmp
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
