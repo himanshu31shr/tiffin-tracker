@@ -493,3 +493,61 @@ body {
   opacity: 0.8;
   font-size: 0.75rem;
 }
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .glass-card {
+    padding: 1rem;
+  }
+
+  .stat h2 {
+    font-size: 2rem;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+  }
+
+  .calendar-grid {
+    gap: 0.25rem;
+  }
+
+  .grid-day {
+    font-size: 0.75rem;
+  }
+
+  .consumed-count {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .auth-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr; /* Stack stats on very small screens */
+  }
+
+  .skipped-meals-list ul {
+    grid-template-columns: 1fr; /* Stack skipped meals on very small screens */
+  }
+}
