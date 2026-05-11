@@ -4,12 +4,12 @@ import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
 // Dummy config for local emulator or real config for production
 const firebaseConfig = {
-  apiKey: "dummy-api-key",
+  apiKey: "AIzaSyDGUJ_UKgfQtar8S_5vYQXiLUyf1JcI1Ag",
   authDomain: "tiffin-tracker-0511.firebaseapp.com",
   projectId: "tiffin-tracker-0511",
-  storageBucket: "tiffin-tracker-0511.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abcdef123456"
+  storageBucket: "tiffin-tracker-0511.firebasestorage.app",
+  messagingSenderId: "868946374771",
+  appId: "1:868946374771:web:6c9485337d426f2fcd3a06"
 };
 
 const app = initializeApp(firebaseConfig);
