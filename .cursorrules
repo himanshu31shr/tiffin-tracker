@@ -1,0 +1,16 @@
+# Cursor Rules - Tiffin Tracker
+
+## General
+- Always maintain the dark glassmorphic theme defined in `index.css`.
+- Use functional components and hooks in React.
+- Keep `src/utils/tracker.js` as the source of truth for meal calculations.
+
+## Specifics
+- **Delivery Times**: Lunch at 12 PM, Dinner at 8 PM.
+- **Sundays**: Only 1 meal (Lunch).
+- **Data Format**: Skipped meals are stored as `YYYY-MM-DD-mealType`.
+
+## Code Style
+- Use descriptive variable names.
+- Keep components focused and small.
+- Do not remove comments unless they are obsolete.
