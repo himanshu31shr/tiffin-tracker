@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -27,6 +27,14 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+
+      - name: Bump version
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          npm version patch -m "ci: bump version to %s [skip ci]"
+          git push origin main --tags
+
       - run: npm run build
       - name: Deploy Firestore Rules
         run: npx firebase-tools deploy --only firestore:rules --token ${{ secrets.FIREBASE_TOKEN }}
@@ -37,3 +45,18 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Get version
+        id: get_version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${{ steps.get_version.outputs.version }}
+          if gh release view v$VERSION >/dev/null 2>&1; then
+            echo "Release v$VERSION already exists, skipping."
+          else
+            gh release create v$VERSION --title "Release v$VERSION" --generate-notes
+          fi
