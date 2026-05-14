@@ -125,9 +125,14 @@ export default function Dashboard({ userId, userData }) {
         <button className="btn primary" onClick={() => addRecharge(userId, currentRecharge.totalMeals)}>
           Add Recharge (+56 Meals)
         </button>
-        <button className="btn outline danger" onClick={() => {
+        <button className="btn outline danger" onClick={async () => {
           if (window.confirm("Are you sure you want to reset and start fresh? This will delete your current plan and history.")) {
-            deletePlan(userId);
+            try {
+              await deletePlan(userId);
+            } catch (error) {
+              console.error("Failed to reset plan:", error);
+              alert("Failed to reset plan. Please try again.");
+            }
           }
         }}>
           Reset & Start Fresh
