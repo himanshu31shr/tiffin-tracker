@@ -44,7 +44,7 @@ function App() {
             <Auth user={user} />
           </header>
           <main className="main-content">
-            <Dashboard userId={user.uid} userData={userData} />
+            <Dashboard key={userData?.currentRecharge ? 'active' : 'empty'} userId={user.uid} userData={userData} />
           </main>
         </>
       ) : (
